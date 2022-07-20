@@ -1,6 +1,6 @@
 ﻿{
     "id":  "c4b0c81a-3f58-40cb-b239-dd6c271b6633",
-    "name":  "RewardLevelTable",
+    "name":  "Reward Level Table",
     "publisher":  "Phil",
     "version":  "1.0.0.0",
     "brief":  "",
@@ -28,6 +28,6 @@
     "resourceExposurePolicy":  {
                                    "allowDebugging":  true,
                                    "allowDownloadingSource":  true,
-                                   "includeSourceInSymbolFile":  false
+                                   "includeSourceInSymbolFile":  true
                                }
 }
