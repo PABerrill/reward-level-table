@@ -1,7 +1,7 @@
 page 50101 "Rewards Level List"
 {
     PageType = List;
-    // ContextSensitiveHelpPage = 'sales-rewards';
+    ContextSensitiveHelpPage = 'sales-rewards';
     SourceTable = "Reward Level";
     SourceTableView = sorting("Minimum Reward Points") order(ascending);
 
@@ -29,7 +29,7 @@ page 50101 "Rewards Level List"
     trigger OnOpenPage();
     begin
 
-        if not CustomerRewardsExtMgt.IsCustomerRewardsActivated then
+        if (not CustomerRewardsExtMgt.IsCustomerRewardsActivated) then
             Error(NotActivatedTxt);
     end;
 

@@ -3,8 +3,7 @@ page 50100 "Customer Rewards Wizard"
     // Specifies that this page will be a navigate page. 
     PageType = NavigatePage;
     Caption = 'Customer Rewards assisted setup guide';
-    // ContextSensitiveHelpPage = 'sales-rewards';
-
+    ContextSensitiveHelpPage = 'sales-rewards';
 
     layout
     {
@@ -123,13 +122,13 @@ page 50100 "Customer Rewards Wizard"
 
                 group("ActivationDone")
                 {
-                    Caption = 'You are done!';
+                    Caption = 'You''re done!';
                     Visible = FinalPageVisible;
 
                     group(DoneMessage)
                     {
                         Caption = '';
-                        InstructionalText = 'Click Finish to set up your rewards level and start using Customer Rewards.';
+                        InstructionalText = 'Click Finish to setup your rewards level and start using Customer Rewards.';
                         Visible = FinalPageVisible;
                     }
                 }
@@ -193,7 +192,7 @@ page 50100 "Customer Rewards Wizard"
                     if CustomerRewardsExtMgt.ActivateCustomerRewards(ActivationCode) then
                         NextStep(false)
                     else
-                        Error('Activation failed. Please check the activation code you entered.');
+                        Error('Activation failed. Please check the activtion code you entered.');
                 end;
             }
 
@@ -252,11 +251,7 @@ page 50100 "Customer Rewards Wizard"
     local procedure FinishAndEnableCustomerRewards();
     var
         CustomerRewardsExtMgt: Codeunit "Customer Rewards Ext. Mgt.";
-        AssistedSetup: Codeunit "Assisted Setup";
-        Info: ModuleInfo;
     begin
-        NavApp.GetCurrentModuleInfo(Info);
-        AssistedSetup.Complete(PAGE::"Customer Rewards Wizard");
         CurrPage.Close;
         CustomerRewardsExtMgt.OpenRewardsLevelPage;
     end;
@@ -310,8 +305,8 @@ page 50100 "Customer Rewards Wizard"
     end;
 
     var
-        MediaRepositoryStandard: Record "Media Repository";
-        MediaResourcesStandard: Record "Media Resources";
+        MediaRepositoryStandard: Record 9400;
+        MediaResourcesStandard: Record 2000000182;
         Step: Option First,Second,Finish;
         ActivationCode: Text;
         TopBannerVisible: Boolean;

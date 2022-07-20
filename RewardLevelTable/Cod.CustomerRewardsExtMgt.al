@@ -1,6 +1,8 @@
 codeunit 50101 "Customer Rewards Ext. Mgt."
 {
-    EventSubscriberInstance = StaticAutomatic;
+    var
+        DummySuccessResponseTxt: Label '{"ActivationResponse": "Success"}', Locked = true;
+        NoRewardlevelTxt: Label 'NONE';
 
     // Determines if the extension is activated 
     procedure IsCustomerRewardsActivated(): Boolean;
@@ -31,7 +33,7 @@ codeunit 50101 "Customer Rewards Ext. Mgt."
         RewardsLevelPage.Run;
     end;
 
-    // Determines the corresponding reward level and returns it 
+    // Determines the correponding reward level and returns it 
     procedure GetRewardLevel(RewardPoints: Integer) RewardLevelTxt: Text;
     var
         RewardLevelRec: Record "Reward Level";
@@ -119,7 +121,7 @@ codeunit 50101 "Customer Rewards Ext. Mgt."
         exit(true);
     end;
 
-    // Subscribes to the OnAfterReleaseSalesDoc event and increases reward points for the sell to customer in posted sales order 
+    // Subcribes to the OnAfterReleaseSalesDoc event and increases reward points for the sell to customer in posted sales order 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Release Sales Document", 'OnAfterReleaseSalesDoc', '', false, false)]
     local procedure OnAfterReleaseSalesDocSubscriber(VAR SalesHeader: Record "Sales Header"; PreviewMode: Boolean; LinesWereModified: Boolean);
     var
@@ -142,8 +144,4 @@ codeunit 50101 "Customer Rewards Ext. Mgt."
             exit(CustomerRewardsExtMgtSetup."Cust. Rew. Ext. Mgt. Cod. ID" = CODEUNIT::"Customer Rewards Ext. Mgt.");
         exit(false);
     end;
-
-    var
-        DummySuccessResponseTxt: Label '{"ActivationResponse": "Success"}', Locked = true;
-        NoRewardlevelTxt: TextConst ENU = 'NONE';
 }

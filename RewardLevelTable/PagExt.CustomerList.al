@@ -13,9 +13,8 @@ pageextension 50101 "Customer List Ext." extends "Customer List"
                 PromotedIsBig = true;
                 ToolTip = 'Open the list of reward levels.';
 
+
                 trigger OnAction();
-                var
-                    CustomerRewardsExtMgt: Codeunit "Customer Rewards Ext. Mgt.";
                 begin
                     if CustomerRewardsExtMgt.IsCustomerRewardsActivated then
                         CustomerRewardsExtMgt.OpenRewardsLevelPage
@@ -25,4 +24,7 @@ pageextension 50101 "Customer List Ext." extends "Customer List"
             }
         }
     }
+
+    var
+        CustomerRewardsExtMgt: Codeunit "Customer Rewards Ext. Mgt.";
 }

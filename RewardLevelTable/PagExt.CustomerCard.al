@@ -7,7 +7,6 @@ pageextension 50100 "Customer Card Ext." extends "Customer Card"
             field(RewardLevel; RewardLevel)
             {
                 ApplicationArea = All;
-
                 Caption = 'Reward Level';
                 Description = 'Reward level of the customer.';
                 ToolTip = 'Specifies the level of reward that the customer has at this point.';

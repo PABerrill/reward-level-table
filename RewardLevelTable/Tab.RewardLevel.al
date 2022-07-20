@@ -1,21 +1,11 @@
 table 50100 "Reward Level"
 {
-    Caption = 'Reward Level';
-    TableType = Normal;
-    DataClassification = CustomerContent;
-
     fields
     {
-        field(1; Level; Text[20])
-        {
-            Caption = 'Level';
-            DataClassification = CustomerContent;
-        }
+        field(1; Level; Text[20]) { }
 
         field(2; "Minimum Reward Points"; Integer)
         {
-            Caption = 'Minimum Reward Points';
-            DataClassification = CustomerContent;
             MinValue = 0;
             NotBlank = true;
 

@@ -7,7 +7,8 @@
     "description":  "",
     "privacyStatement":  "",
     "EULA":  "",
-    "help":  "",
+    "help":  "https://www.berrill.uk",
+    "contextSensitiveHelpUrl": "https://www.berrill.uk",
     "url":  "",
     "logo":  "",
     "dependencies":  [
